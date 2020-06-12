@@ -1,11 +1,14 @@
 import random
 
 
-def create_file(name, string, number=1000):
-    file_name = f'{number}个{name}'
+def create_file(name, string, number=100):
+    file_name = f'{number}组{name}'
     data = ''
     for _i in range(number):
-        data += random.choice(string)
+        random_num = random.choice(range(3, 10))
+        for _j in range(random_num):
+            data += random.choice(string)
+        data += ' '
 
     with open(file_name, mode="w", encoding="utf8") as f:
         f.write(data)
